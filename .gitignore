@@ -1,0 +1,10 @@
+node_modules/
+*.mcpb
+.mcpb-cache/
+
+# AI tooling and planning files stay out of the repo
+.claude/
+.superpowers/
+CLAUDE.md
+docs/plans/
+docs/specs/

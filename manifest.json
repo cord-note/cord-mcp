@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "cord",
+  "display_name": "Cord",
+  "version": "0.1.0",
+  "description": "Search, read and write your Cord notes from Claude Desktop.",
+  "long_description": "Connects Claude to the Cord note app running on this computer. Cord decides what agents may see: only the vaults you pick in its Agents tab, and edits only when you turn them on. Cord must be open and unlocked.",
+  "author": { "name": "Aleksander Sprengel", "url": "https://github.com/Alexander-288" },
+  "homepage": "https://github.com/cord-note/cord-mcp",
+  "repository": { "type": "git", "url": "https://github.com/cord-note/cord-mcp" },
+  "license": "AGPL-3.0-only",
+  "keywords": ["cord", "notes", "knowledge-graph"],
+  "server": {
+    "type": "node",
+    "entry_point": "server/bridge.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/bridge.mjs"],
+      "env": {
+        "CORD_MCP_TOKEN": "${user_config.token}",
+        "CORD_DATA_DIR": "${user_config.data_dir}"
+      }
+    }
+  },
+  "user_config": {
+    "token": {
+      "type": "string",
+      "title": "Cord token",
+      "description": "Make one in Cord: Agents tab → Make a token. Cord shows it once.",
+      "sensitive": true,
+      "required": true
+    },
+    "data_dir": {
+      "type": "directory",
+      "title": "Cord data folder (optional)",
+      "description": "Leave empty unless you run Cord with CORD_DATA_DIR.",
+      "required": false,
+      "default": ""
+    }
+  },
+  "tools": [
+    { "name": "list_vaults", "description": "List the vaults (notebooks) you may read." },
+    { "name": "search", "description": "Search notes by words in their title or text." },
+    { "name": "read_note", "description": "Read a note: title, tags, field values, and its text as Markdown." },
+    { "name": "backlinks", "description": "Notes that link to a note with a wiki link." },
+    { "name": "list_tags", "description": "The tags of a vault, with each tag's fields." },
+    { "name": "tag_table", "description": "Everything carrying a tag, with its field values." },
+    { "name": "create_note", "description": "Create a note with Markdown text and tags (when editing is on)." },
+    { "name": "append_to_note", "description": "Add Markdown to the end of a note (when editing is on)." },
+    { "name": "set_field", "description": "Set a tag field on a note or block (when editing is on)." },
+    { "name": "tag", "description": "Tag a note or a block (when editing is on)." },
+    { "name": "untag", "description": "Remove a tag from a note or a block (when editing is on)." },
+    { "name": "move_to_trash", "description": "Move a note to the trash (when editing is on)." }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=18.0.0" }
+  }
+}

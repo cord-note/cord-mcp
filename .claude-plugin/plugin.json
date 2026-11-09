@@ -1,0 +1,36 @@
+{
+  "name": "cord",
+  "displayName": "Cord",
+  "version": "0.1.0",
+  "description": "Search, read and write your Cord notes from Claude, and a skill that teaches how Cord notes are built.",
+  "author": { "name": "Aleksander Sprengel", "url": "https://github.com/Alexander-288" },
+  "homepage": "https://github.com/cord-note/cord-mcp",
+  "repository": "https://github.com/cord-note/cord-mcp",
+  "license": "AGPL-3.0-only",
+  "keywords": ["cord", "notes", "mcp", "knowledge-graph"],
+  "mcpServers": {
+    "cord": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/bridge.mjs"],
+      "env": {
+        "CORD_MCP_TOKEN": "${user_config.token}",
+        "CORD_DATA_DIR": "${user_config.data_dir}"
+      }
+    }
+  },
+  "userConfig": {
+    "token": {
+      "type": "string",
+      "title": "Cord token",
+      "description": "Make one in Cord: Agents tab → Make a token. Cord shows it once.",
+      "sensitive": true,
+      "required": true
+    },
+    "data_dir": {
+      "type": "directory",
+      "title": "Cord data folder (optional)",
+      "description": "Leave empty unless you run Cord with CORD_DATA_DIR.",
+      "default": ""
+    }
+  }
+}

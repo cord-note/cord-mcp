@@ -1,0 +1,17 @@
+{
+  "name": "cord-note",
+  "owner": {
+    "name": "Aleksander Sprengel",
+    "url": "https://github.com/Alexander-288"
+  },
+  "plugins": [
+    {
+      "name": "cord",
+      "source": "./",
+      "description": "Search, read and write your Cord notes from Claude, and a skill that teaches how Cord notes are built."
+    }
+  ],
+  "metadata": {
+    "description": "Plugins for the Cord note app"
+  }
+}

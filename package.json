@@ -1,0 +1,14 @@
+{
+  "name": "cord-mcp",
+  "version": "0.1.0",
+  "description": "Connects MCP clients to the Cord note app",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "bin": { "cord-mcp": "server/bridge.mjs" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node --test",
+    "pack:desktop": "npx @anthropic-ai/mcpb pack . cord.mcpb"
+  }
+}
