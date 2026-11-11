@@ -19,7 +19,7 @@ computer: the server listens on `127.0.0.1` only.
 
 ## Requirements
 
-- A Cord version with the **Agents** tab (not released yet)
+- Cord 3.0 or newer, which has the **Agents** tab (first beta: `v3.0.0-beta.1`)
 - Node 18 or newer (Claude Desktop brings its own)
 
 ## Claude Code
